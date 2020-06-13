@@ -1,0 +1,8 @@
+#command to install the mysql in docker
+#docker run --name seth-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql 
+
+#create database currency_db;
+#use currency_db;
+#insert into exchange_value(id, conversion_multiple, currency_from, currency_to) values(10001,65,'USD','INR');
+#insert into exchange_value(id, conversion_multiple, currency_from, currency_to) values(10002,75,'EUR','INR');
+#insert into exchange_value(id, conversion_multiple, currency_from, currency_to) values(10003,45,'AUD','INR');
