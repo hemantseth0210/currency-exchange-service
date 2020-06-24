@@ -18,9 +18,9 @@ public class CurrencyExchangeService {
 	ExchangeValueRepository exchangeValueRepository;
 	
 	public ExchangeValue getExchangeValue(String from, String to) {
+		logger.info("Querying the MySql DB to find the exchange rates");
 		ExchangeValue exchangeValue = exchangeValueRepository.findByFromAndTo(from, to);
-		//exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
-		logger.info("{}",exchangeValue);
+		logger.info("Exchange Rate/Value found from MySql DB {} ", exchangeValue);
 		return exchangeValue;
 	}
 
