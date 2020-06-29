@@ -67,7 +67,7 @@ pipeline {
       stage('Deploy to GKE Cluster') {
          steps {
             echo 'Login to cluster'
-            sh 'gcloud container clusters get-credentials currency-exchange-cluster --zone us-east1-b --project hemant-seth-0210'
+            sh 'gcloud container clusters get-credentials currency-conversion-cluster --zone us-east1-b --project hemant-seth-0210'
             echo 'Deploy to cluster'
             sh 'kubectl set image deployment/currency-exchange-deployment currency-exchange=hemantseth0210/currency-exchange-service:1.0.${BUILD_NUMBER} --namespace demo'
          }
