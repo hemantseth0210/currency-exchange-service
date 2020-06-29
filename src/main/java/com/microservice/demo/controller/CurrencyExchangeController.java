@@ -29,13 +29,7 @@ public class CurrencyExchangeController {
 	public ExchangeValue retrieveExchangeValue(@PathVariable String from, @PathVariable String to) {
 		return currencyExchangeService.getExchangeValue(from, to);
 	}
-	// Caused Sonar Quality gate to fail
-	/*
-	 * @PostMapping("/currency-exchange/rate") public void
-	 * createExchangeValue(@RequestBody ExchangeValue exchangeValue) {
-	 * currencyExchangeService.createExchangeValue(exchangeValue); }
-	 */
-	
+		
 	@PostMapping("/currency-exchange/rate")
 	public void createExchangeValue(@RequestBody ExchangeValueDto exchangeValueDto) {
 		currencyExchangeService.createExchangeValue(exchangeValueDto);
