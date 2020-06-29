@@ -7,24 +7,11 @@ import javax.persistence.Id;
 
 public class ExchangeValueDto {
 
-	@Id
 	private Long id;
-	
-	@Column(name = "currency_from")
 	private String from;
-	
-	@Column(name = "currency_to")
 	private String to;
 	private BigDecimal conversionMultiple;
 	
-	public ExchangeValueDto(Long id, String from, String to, BigDecimal conversionMultiple) {
-		super();
-		this.id = id;
-		this.from = from;
-		this.to = to;
-		this.conversionMultiple = conversionMultiple;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -62,7 +49,5 @@ public class ExchangeValueDto {
 		return "ExchangeValue [id=" + id + ", from=" + from + ", to=" + to + ", conversionMultiple="
 				+ conversionMultiple + "]";
 	}
-
-	
 	
 }
