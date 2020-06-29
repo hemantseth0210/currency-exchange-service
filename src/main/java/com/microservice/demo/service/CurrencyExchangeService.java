@@ -27,14 +27,14 @@ public class CurrencyExchangeService {
 	}
 
 	public void createExchangeValue(ExchangeValueDto exchangeValueDto) {
-		ExchangeValue exchangeValue = new ExchangeValue(exchangeValueDto.getFrom(), exchangeValueDto.getTo(), exchangeValueDto.getConversionMultiple());
+		ExchangeValue exchangeValue = new ExchangeValue(exchangeValueDto.getCurrencyFrom(), exchangeValueDto.getCurrencyTo(), exchangeValueDto.getExchangeRate());
 		logger.info("Creating the Exchange Value in MySql DB {}", exchangeValue);
 		exchangeValueRepository.save(exchangeValue);
 		logger.info("Created the Exchange Value in MySql DB {} ", exchangeValue);
 	}
 
 	public void updateExchangeValue(ExchangeValueDto exchangeValueDto) {
-		ExchangeValue exchangeValue = new ExchangeValue(exchangeValueDto.getId(), exchangeValueDto.getFrom(), exchangeValueDto.getTo(), exchangeValueDto.getConversionMultiple());
+		ExchangeValue exchangeValue = new ExchangeValue(exchangeValueDto.getCurrencyExchangeId(), exchangeValueDto.getCurrencyFrom(), exchangeValueDto.getCurrencyTo(), exchangeValueDto.getExchangeRate());
 		logger.info("Updating the Exchange Value in MySql DB {}", exchangeValue);
 		exchangeValueRepository.save(exchangeValue);
 		logger.info("Updated the Exchange Value in MySql DB {} ", exchangeValue);
