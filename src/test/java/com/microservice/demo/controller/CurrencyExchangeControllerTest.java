@@ -124,5 +124,6 @@ class CurrencyExchangeControllerTest {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.context).build();
 		mockMvc.perform(get("/currency-exchange/rates")).andExpect(status().isOk());
 	}
+	
 
 }
