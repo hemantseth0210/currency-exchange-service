@@ -3,10 +3,8 @@ package com.microservice.demo.domain;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
 public class ExchangeValueDto {
 
 	@Id
