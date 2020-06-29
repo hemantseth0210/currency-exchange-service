@@ -1,4 +1,4 @@
-package com.microservice.demo.entity;
+package com.microservice.demo.domain;
 
 import java.math.BigDecimal;
 
@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class ExchangeValue {
+public class ExchangeValueDto {
 
 	@Id
 	private Long id;
@@ -19,17 +19,7 @@ public class ExchangeValue {
 	private String to;
 	private BigDecimal conversionMultiple;
 	
-	public ExchangeValue() {
-		
-	}
-
-	public ExchangeValue(String from, String to, BigDecimal conversionMultiple) {
-		this.from = from;
-		this.to = to;
-		this.conversionMultiple = conversionMultiple;
-	}
-	
-	public ExchangeValue(Long id, String from, String to, BigDecimal conversionMultiple) {
+	public ExchangeValueDto(Long id, String from, String to, BigDecimal conversionMultiple) {
 		super();
 		this.id = id;
 		this.from = from;

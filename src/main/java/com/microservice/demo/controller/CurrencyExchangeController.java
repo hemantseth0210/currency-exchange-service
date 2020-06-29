@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.microservice.demo.domain.ExchangeValueDto;
 import com.microservice.demo.entity.ExchangeValue;
 import com.microservice.demo.service.CurrencyExchangeService;
 
@@ -28,15 +29,21 @@ public class CurrencyExchangeController {
 	public ExchangeValue retrieveExchangeValue(@PathVariable String from, @PathVariable String to) {
 		return currencyExchangeService.getExchangeValue(from, to);
 	}
+	// Caused Sonar Quality gate to fail
+	/*
+	 * @PostMapping("/currency-exchange/rate") public void
+	 * createExchangeValue(@RequestBody ExchangeValue exchangeValue) {
+	 * currencyExchangeService.createExchangeValue(exchangeValue); }
+	 */
 	
 	@PostMapping("/currency-exchange/rate")
-	public void createExchangeValue(@RequestBody ExchangeValue exchangeValue) {
-		currencyExchangeService.createExchangeValue(exchangeValue);
+	public void createExchangeValue(@RequestBody ExchangeValueDto exchangeValueDto) {
+		currencyExchangeService.createExchangeValue(exchangeValueDto);
 	}
 	
 	@PutMapping("/currency-exchange/rate")
-	public void updateExchangeValue(@RequestBody ExchangeValue exchangeValue) {
-		currencyExchangeService.updateExchangeValue(exchangeValue);
+	public void updateExchangeValue(@RequestBody ExchangeValueDto exchangeValueDto) {
+		currencyExchangeService.updateExchangeValue(exchangeValueDto);
 	}
 	
 	@DeleteMapping("/currency-exchange/{from}/to/{to}")

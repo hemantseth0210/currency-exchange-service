@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.microservice.demo.domain.ExchangeValueDto;
 import com.microservice.demo.entity.ExchangeValue;
 import com.microservice.demo.repository.ExchangeValueRepository;
 
@@ -25,13 +26,15 @@ public class CurrencyExchangeService {
 		return exchangeValue;
 	}
 
-	public void createExchangeValue(ExchangeValue exchangeValue) {
+	public void createExchangeValue(ExchangeValueDto exchangeValueDto) {
+		ExchangeValue exchangeValue = new ExchangeValue(exchangeValueDto.getFrom(), exchangeValueDto.getTo(), exchangeValueDto.getConversionMultiple());
 		logger.info("Creating the Exchange Value in MySql DB {}", exchangeValue);
 		exchangeValueRepository.save(exchangeValue);
 		logger.info("Created the Exchange Value in MySql DB {} ", exchangeValue);
 	}
 
-	public void updateExchangeValue(ExchangeValue exchangeValue) {
+	public void updateExchangeValue(ExchangeValueDto exchangeValueDto) {
+		ExchangeValue exchangeValue = new ExchangeValue(exchangeValueDto.getId(), exchangeValueDto.getFrom(), exchangeValueDto.getTo(), exchangeValueDto.getConversionMultiple());
 		logger.info("Updating the Exchange Value in MySql DB {}", exchangeValue);
 		exchangeValueRepository.save(exchangeValue);
 		logger.info("Updated the Exchange Value in MySql DB {} ", exchangeValue);
